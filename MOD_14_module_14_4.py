@@ -82,7 +82,7 @@ async def get_formulas(call):
 async def get_buying_list(message):
     products = get_all_products()
     for i in range(len(products)):
-        photo = InputFile(f'./files/pr{i + 1}.jpg')
+        photo = InputFile(f'./files/prod{i + 1}.jpg')
         await message.answer_photo(photo=photo, caption=f'Название: {products[i][1]} | '
                                                         f'Описание: {products[i][2]} | '
                                                         f'Цена: {products[i][3]}')
