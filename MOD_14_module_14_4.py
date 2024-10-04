@@ -5,9 +5,8 @@ from aiogram.types.input_file import InputFile
 
 from crud_functions import *
 from keyboards import *
-from texts import *
 
-api = '7705130134:AAEbnKiSHXvqz6wcePX6se4MARGsLYC5-u8'
+api = '_____'
 bot = Bot(token=api)
 dp = Dispatcher(bot, storage=MemoryStorage())
 
@@ -54,7 +53,6 @@ async def set_weight(message, state):
     await UserState.weight.set()
 
 
-
 @dp.message_handler(state=UserState.weight)
 async def send_calories(message, state):
     await state.update_data(weight=int(message.text))
@@ -67,15 +65,11 @@ async def send_calories(message, state):
     await state.finish()
 
 
-
-
 @dp.callback_query_handler(text='formulas')
 async def get_formulas(call):
     await call.message.answer('Формула Миффлина-Сан Жеора для расчёта нормы калорий:\n'
                                'Калории = (10 * вес) + (6.25 * рост) - (5 * возраст) - 161')
     await call.answer()
-
-
 
 
 @dp.message_handler(text='Купить')
@@ -87,7 +81,6 @@ async def get_buying_list(message):
                                                         f'Описание: {products[i][2]} | \n'
                                                         f'Цена: {products[i][3]}')
     await message.answer('Выберите продукт для покупки:', reply_markup=product_kb)
-
 
 
 @dp.callback_query_handler(text='product_buying')
