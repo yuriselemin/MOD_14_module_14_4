@@ -1,5 +1,5 @@
-
 import sqlite3
+
 
 def initiate_db():
     connection = sqlite3.connect('products.db')
@@ -7,14 +7,13 @@ def initiate_db():
 
     cursor.execute('''
     CREATE TABLE IF NOT EXISTS Products(
-    id INTEGER PRIMARY KEY,
+    id INT PRIMARY KEY,
     title TEXT NOT NULL,
     description TEXT,
-    price INTEGER NOT NULL
+    price INT NOT NULL
     )
     ''')
-    connection.commit()
-    connection.close()
+
 
 def get_all_products():
     connection = sqlite3.connect('products.db')

@@ -7,7 +7,7 @@ from crud_functions import *
 from keyboards import *
 from texts import *
 
-api = '___'
+api = '7705130134:AAEbnKiSHXvqz6wcePX6se4MARGsLYC5-u8'
 bot = Bot(token=api)
 dp = Dispatcher(bot, storage=MemoryStorage())
 
@@ -83,8 +83,8 @@ async def get_buying_list(message):
     products = get_all_products()
     for i in range(len(products)):
         photo = InputFile(f'./files/prod{i + 1}.jpg')
-        await message.answer_photo(photo=photo, caption=f'Название: {products[i][1]} | '
-                                                        f'Описание: {products[i][2]} | '
+        await message.answer_photo(photo=photo, caption=f'Название: {products[i][1]} | \n'
+                                                        f'Описание: {products[i][2]} | \n'
                                                         f'Цена: {products[i][3]}')
     await message.answer('Выберите продукт для покупки:', reply_markup=product_kb)
 
