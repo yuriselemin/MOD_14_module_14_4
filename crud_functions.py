@@ -26,3 +26,5 @@ def get_all_products():
     connection.commit()
     connection.close()
     return products
+
+
